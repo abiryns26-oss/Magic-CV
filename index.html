@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُولد السيرة الذاتية الذكي المخصص للوظائف</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --border-color: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel h2 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: var(--accent-color);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: #475569;
+        }
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* نافذة معاينة السيرة الذاتية */
+        .cv-preview {
+            background: #ffffff;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            flex-grow: 1;
+            min-height: 350px;
+            max-height: 550px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+        }
+
+        .cv-header-preview {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .cv-header-preview h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .cv-section {
+            margin-bottom: 12px;
+        }
+
+        .cv-section h4 {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .actions-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>مُولد السيرة الذاتية الموجه بالوظيفة</h1>
+        <p>ألصق إعلان الوظيفة لتحليل المتطلبات وتوليد سيرة ذاتية مُحسّنة ومطابقة فوراً</p>
+    </header>
+
+    <div class="container">
+        <!-- نافذة إعلان الوظيفة -->
+        <div class="panel">
+            <h2>📢 نافذة إعلان الوظيفة</h2>
+            
+            <div class="form-group">
+                <label for="jobTitle">المسمى الوظيفة المستهدفة:</label>
+                <input type="text" id="jobTitle" placeholder="مثال: مطور ويب، مهندس بحري، مسؤول تسويق رقمي...">
+            </div>
+
+            <div class="form-group">
+                <label for="applicantName">اسم المتقدم:</label>
+                <input type="text" id="applicantName" placeholder="اسمك الكامل">
+            </div>
+
+            <div class="form-group">
+                <label for="jobDescription">تفاصيل إعلان الوظيفة والمهارات المطلوبة:</label>
+                <textarea id="jobDescription" placeholder="قم بلصق نص إعلان الوظيفة هنا (المتطلبات، الخبرات، التقنيات المطلوبة مثل SQL, Python, الإدارة، اللغات...)..."></textarea>
+            </div>
+
+            <button class="btn" onclick="generateTailoredCV()">⚡ توليد السيرة الذاتية المخصصة</button>
+        </div>
+
+        <!-- نافذة السيرة الذاتية الناتجة -->
+        <div class="panel">
+            <h2>📄 نافذة السيرة الذاتية المطابقة</h2>
+            
+            <div id="cvPreview" class="cv-preview">
+                <p style="color: #94a3b8; text-align: center; margin-top: 100px;">املأ تفاصيل الوظيفة واضغط على زر التوليد لتظهر السيرة الذاتية هنا...</p>
+            </div>
+
+            <div class="actions-bar">
+                <button class="btn btn-secondary" onclick="copyCVText()">📋 نسخ النص</button>
+                <button class="btn btn-secondary" onclick="printCV()">🖨️ طباعة / حفظ PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateTailoredCV() {
+            const jobTitle = document.getElementById('jobTitle').value.trim() || "مختص محترف";
+            const applicantName = document.getElementById('applicantName').value.trim() || "عبير";
+            const jobDesc = document.getElementById('jobDescription').value.trim();
+
+            // تحليل ذكي سريع للكلمات المفتاحية من إعلان الوظيفة لتضمينها في الملخص والمهارات
+            let detectedKeywords = "خبرة عملية عالية، قدرة على التكيف، حل المشكلات، العمل الجماعي";
+            if (jobDesc) {
+                const keywordsList = [];
+                if (jobDesc.includes('برمجة') || jobDesc.includes('تطوير') || jobDesc.includes('web') || jobDesc.includes('Python') || jobDesc.includes('SQL')) keywordsList.append?.() || keywordsList.push("تطوير البرمجيات", "قواعد البيانات", "التحليل التقني");
+                if (jobDesc.includes('تسويق') || jobDesc.includes('محتوى') || jobDesc.includes('social')) keywordsList.push("التسويق الرقمي", "استراتيجيات المحتوى", "إدارة الحملات");
+                if (jobDesc.includes('إدارة') || jobDesc.includes('إشراف') || jobDesc.includes('تنسيق')) keywordsList.push("الإدارة التنفيذية", "التنسيق الميداني", "التخطيط الاستراتيجي");
+                
+                if (keywordsList.length > 0) {
+                    detectedKeywords = keywordsList.join('، ');
+                }
+            }
+
+            // بناء محتوى السيرة الذاتية بناءً على المدخلات
+            const cvHTML = `
+                <div class="cv-header-preview">
+                    <h3>${applicantName}</h3>
+                    <p><strong>المسمى المستهدف:</strong> ${jobTitle}</p>
+                </div>
+                
+                <div class="cv-section">
+                    <h4>الملخص المهني</h4>
+                    <p>محترف(ة) طموح(ة) وخبير(ة) في مجالات العمل المتقدمة، مع تركيز خاص على التميز التشغيلي والكفاءة. أملك خبرة عملية قوية تتوافق تماماً مع متطلبات وظيفة <strong>${jobTitle}</strong>، وأسعى لتقديم حلول مبتكرة وفعالة.</p>
+                </div>
+
+                <div class="cv-section">
+                    <h4>المهارات المطابقة لإعلان الوظيفة</h4>
+                    <p>${detectedKeywords}، والمهارات المحددة في الإعلان: <em>${jobDesc ? jobDesc.substring(0, 100) + '...' : 'المهارات العامة المرتبطة بالدور'}</em></p>
+                </div>
+
+                <div class="cv-section">
+                    <h4>الخبرات العملية والمشاريع</h4>
+                    <p><strong>مستقل / مطور مشاريع ومستشار رقمي</strong></p>
+                    <p>• تنفيذ مشاريع نوعية وبناء حلول خفيفة وعالية الأداء.<br>
+                    • إدارة وتشغيل الأنظمة والأدوات التقنية والتسويقية بكفاءة عالية.<br>
+                    • الالتزام بمعايير الجودة والاحترافية والقدرة العالية على إدارة المهام ضمن جداول زمنية دقيقة.</p>
+                </div>
+
+                <div class="cv-section">
+                    <h4>التعليم والشهادات</h4>
+                    <p>• مؤهل أكاديمي وتخصصي متقدم يغطي المعايير التقنية والإدارية المطلوبة في هذا المجال.</p>
+                </div>
+            `;
+
+            document.getElementById('cvPreview').innerHTML = cvHTML;
+        }
+
+        function copyCVText() {
+            const previewEl = document.getElementById('cvPreview');
+            const textToCopy = previewEl.innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('تم نسخ محتوى السيرة الذاتية بنجاح!');
+            }).catch(err => {
+                alert('فشل النسخ، يرجى المحاولة يدويًا.');
+            });
+        }
+
+        function printCV() {
+            const printContent = document.getElementById('cvPreview').innerHTML;
+            const originalBody = document.body.innerHTML;
+
+            document.body.innerHTML = `
+                <div style="direction: rtl; padding: 40px; font-family: sans-serif;">
+                    ${printContent}
+                </div>
+            `;
+            window.print();
+            document.body.innerHTML = originalBody;
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
